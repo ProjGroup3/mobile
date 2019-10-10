@@ -1,0 +1,55 @@
+<resources>
+    <string name="app_name">Matahati Care Center</string>
+    <string name="content_description">content_description</string>
+    <string name="motto">&quot;Berbicara dengan tulus,\n sepenuh hati dan berbahasa anak&quot;</string>
+    <string-array name="menu_profile_arr1">
+        <item>Profil</item>
+        <item>Visi</item>
+        <item>Misi</item>
+    </string-array>
+    <string-array name="menu_profile_arr2">
+        <item>Sekapur Sirih</item>
+        <item>Sekolah dalam arti sebenarnya</item>
+        <item>Tentang Aplikasi</item>
+    </string-array>
+    <string-array name="menu_profile_value_arr1">
+        <item>
+            \n\nMatahati Care Centre adalah wadah komunitas peduli pendidikan di kota Malang yang berusaha
+            memberikan pelayanan pendidikan berbasis karakter positif dengan kualitas pelayanan terbaik
+            untuk orang – orang paling membutuhkan.
+            \n\nMatahati care centre hadir sebagai mediasi sehat keluarga dan sekolah baik formal maupun
+            informal.Dengan  didukung tenaga profesional di bidangnya, dengan niat tulus ikhlas
+            memberikan pengabdian sepenuhnya kepada pembentukan karakter positif anak, kami berusaha
+            secara optimal melakukan pendampingan secara intens selama anak didik, keluarga dan
+            sekolah serta lembaga lainnya membutuhkan.
+        </item>
+        <item>
+            \n\n• Sebagai salah satu perintis dan inspirasi baru dalam pendidikan berbasis karakter positif dengan pendekatan emosional positif terhadap anak didik, keluarga, sekolah dan lembaga secara langsung
+            \n\n• Sebagai mediasi sehat bagi anak didik, keluarga, sekolah dan lembaga dengan program pendampingan dalam optimalisasi komunikasi produktif dan pendekatan emosional positif
+            \n\n• Menjadi pusat komunitas peduli pendidikan
+            \n\n• Sebagai sentra pendidikan karakter positif khususnya di wilayah Malang Raya dan nasional pada umumnya
+        </item>
+        <item>
+            \n\n• Memberikan pelayan yang terbaik dalam pengabdian pendidikan karakter positif kepada yang paling membutuhkan
+            \n\n• Memberikan area dan media edukasi yang steril untuk anak didik, sehingga hak dan kewajibannya dapat teraplikasikan dengan baik dan benar
+            \n\n• Memberikan sosialisasi dan pendekatan emosional positif tentang pentingnya pendidikan karakter positif.
+            \n\n• Memberikan sentuhan pendidikan spiritualisme kepada anak untuk lebih memahami nilai-nilai universal.
+        </item>
+    </string-array>
+    <string-array name="menu_profile_value_arr2">
+        <item>
+            \n\nDunia anak adalah dunia yang identik dengan bermain, penuh warna, penuh tawa dan ceria. Semasa perkembangan di usia emasnya, anak-anak mengisi sebagian besar waktunya dengan bermain. Melalui permainan, setahap demi setahap anak juga akan belajar tentang aneka sisi dalam kehidupan nyata, seperti disiplin, sosialisasi dan norma-norma, yang secara perlahan akan mewarnai aspek kecerdasan dalam diri anak.
+            \n\nBanyak anak yang tumbuh dengan kecerdasan kognitif yang luar biasa. Akan tetapi, tidak sedikit dari mereka yang cerdas dalam prestasi belajar, tapi sulit menyesuaikan diri, mudah putus asa, sulit mengendalikan emosi bahkan sulit menempatkan dirinya dalam aneka situasi.
+            \n\nMenyadari hal seperti ini, kami menawarkan konsep pendidikan karakter untuk membantu anak-anak membentuk karakter-karakter positif dalam diri mereka, sehingga kelak mereka mampu menjadi individu yang tidak hanya cerdas secara kognitif, tapi juga cerdas secara emosional dan spiritual. Di era globalisasi, mereka akan tumbuh menjadi individu yang kuat, pantang menyerah, berkepribadian luhur, berpikiran maju dengan tidak melupakan identitas budaya bangsa.
+            \n\nAnak Indonesia adalah investasi bangsa untuk mempersiapkan generasi emas yang lebih beradab dan tangguh,dan sudah waktunya anak Indonesia untuk menghiasi bangsa ini dengan semua kebaikannya.Orang tua dan guru menjadi tauladan yang sebenarnya bagi generasi emas indonesia.
+            \n\nMatahati Care Center dengan ini mengajak seluruh elemen pendidikan yang terdiri dari orangtua, guru dan anak untuk bersama-sama membangun generasi emas Indonesia, agar generasi bangsa ini tumbuh menjadi generasi yang cerdas akal dan akhlak.
+        </item>
+        <item>
+            \n\nSetiap anak bisa belajar dimana saja, kapan saja dengan siapa saja dengan ketulusan , sepenuh hati dan berbahasa anak.
+            \n\nAnak belajar dengan cara yang sangat unik dan luar biasa, memberikan anak-anak kesempatan yang luar biasa untuk belajar kepada ahlinya.
+        </item>
+        <item>
+            Versi 1.0
+        </item>
+    </string-array>
+</resources>
