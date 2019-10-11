@@ -13,19 +13,15 @@ import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
-import com.matahaticarecenter.model.Message;
 import com.matahaticarecenter.networking.NetworkService;
 
 import java.util.HashMap;
-import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
-import retrofit2.http.GET;
-import retrofit2.http.POST;
 
 public class ContactActivity extends AppCompatActivity {
 
@@ -108,6 +104,12 @@ public class ContactActivity extends AppCompatActivity {
             titleInput.setText("");
             messageInput.setText("");
         }
+    }
+
+    @Override
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return true;
     }
 
 }

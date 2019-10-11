@@ -1,16 +1,16 @@
 package com.matahaticarecenter.model;
 
-public class Message {
+public class MessageModel {
 
     private String id;
     private String user_id;
     private String title;
     private String message;
 
-    public Message() {
+    public MessageModel() {
     }
 
-    public Message(String id, String user_id, String title, String message) {
+    public MessageModel(String id, String user_id, String title, String message) {
         this.id = id;
         this.user_id = user_id;
         this.title = title;

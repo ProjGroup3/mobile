@@ -1,9 +1,6 @@
 package com.matahaticarecenter.networking;
 
-import com.matahaticarecenter.model.Message;
-
 import java.util.HashMap;
-import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.http.Field;
