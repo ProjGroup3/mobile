@@ -1,6 +1,7 @@
 package com.matahaticarecenter.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -8,6 +9,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.matahaticarecenter.DetailProgramActivity;
 import com.matahaticarecenter.R;
 import com.smarteist.autoimageslider.SliderViewAdapter;
 
@@ -27,28 +29,52 @@ public class SliderAdapter extends SliderViewAdapter<SliderAdapter.ViewHolder> {
     }
 
     @Override
-    public void onBindViewHolder(ViewHolder viewHolder, int position) {
-        viewHolder.textViewDescription.setText("This is slider item " + position);
-
+    public void onBindViewHolder(ViewHolder viewHolder, final int position) {
+        final int imgs[] = {
+                R.drawable.picture_1,
+                R.drawable.picture_2,
+                R.drawable.picture_3,
+                R.drawable.picture_4,
+        };
+        final String titles[] = {
+                "Pelantikan Duta",
+                "Travel Edukasi",
+                "Positive Character Tour",
+                "Positive Character Tour (ASEAN)",
+        };
+        viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(context, DetailProgramActivity.class);
+                intent.putExtra("IMG", imgs[position]);
+                intent.putExtra("TITLE", titles[position]);
+                intent.putExtra("DESC", "DESCRIPTION ....'");
+                context.startActivity(intent);
+            }
+        });
         switch (position) {
             case 0:
+                viewHolder.textViewDescription.setText("Pelantikan Duta");
                 Glide.with(viewHolder.itemView)
-                        .load("https://images.pexels.com/photos/218983/pexels-photo-218983.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260")
+                        .load(R.drawable.picture_1)
                         .into(viewHolder.imageViewBackground);
                 break;
             case 1:
+                viewHolder.textViewDescription.setText("Travel Edukasi");
                 Glide.with(viewHolder.itemView)
-                        .load("https://images.pexels.com/photos/747964/pexels-photo-747964.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260")
+                        .load(R.drawable.picture_2)
                         .into(viewHolder.imageViewBackground);
                 break;
             case 2:
+                viewHolder.textViewDescription.setText("Positive Character Tour");
                 Glide.with(viewHolder.itemView)
-                        .load("https://images.pexels.com/photos/929778/pexels-photo-929778.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260")
+                        .load(R.drawable.picture_3)
                         .into(viewHolder.imageViewBackground);
                 break;
             default:
+                viewHolder.textViewDescription.setText("Positive Character Tour (ASEAN)");
                 Glide.with(viewHolder.itemView)
-                        .load("https://images.pexels.com/photos/218983/pexels-photo-218983.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260")
+                        .load(R.drawable.picture_4)
                         .into(viewHolder.imageViewBackground);
                 break;
 

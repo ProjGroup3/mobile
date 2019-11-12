@@ -1,13 +1,14 @@
 package com.matahaticarecenter;
 
+import android.os.Bundle;
+import android.util.Log;
+import android.widget.ImageView;
+import android.widget.TextView;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
-import android.os.Bundle;
-import android.util.Log;
-import android.widget.TextView;
-
-import com.matahaticarecenter.model.ProgramModel;
+import com.bumptech.glide.Glide;
 
 public class DetailProgramActivity extends AppCompatActivity {
 
@@ -24,6 +25,9 @@ public class DetailProgramActivity extends AppCompatActivity {
 
         TextView description = findViewById(R.id.detail_program_text);
         description.setText(getIntent().getStringExtra("DESC"));
+
+        Glide.with(DetailProgramActivity.this).load(getIntent().getStringExtra("IMG"))
+                .into((ImageView) findViewById(R.id.detail_program_img));
 
         Log.d("INTENT_GET", String.valueOf(getIntent().getExtras()));
     }
