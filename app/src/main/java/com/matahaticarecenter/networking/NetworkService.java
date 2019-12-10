@@ -10,13 +10,23 @@ import retrofit2.http.POST;
 
 public interface NetworkService {
 
+    public static String BASE_URL = "http://192.168.68.43/api/";
+
+
+    @GET("gallery")
+    Call<HashMap<String, Object>> getGalleryCall();
+
     @FormUrlEncoded
-    @POST("sendMessage")
-    Call<String> sendMessage(@Field("user_id") Integer user_id, @Field("title") String title, @Field("message") String message);
+    @POST("login")
+    Call<HashMap<String, Object>> loginCall(@Field("username") String username, @Field("password") String password);
 
-    @GET("")
-    Call<String> getGoogle();
-
-    @GET("vocab_category")
-    Call<HashMap<String, Object>> getVocabCategories();
+    @FormUrlEncoded
+    @POST("register")
+    Call<HashMap<String, Object>> registerCall(
+            @Field("username") String username,
+            @Field("email") String email,
+            @Field("fullname") String fullname,
+            @Field("phone") String phone,
+            @Field("password") String password
+    );
 }

@@ -18,6 +18,8 @@ import com.smarteist.autoimageslider.IndicatorAnimations;
 import com.smarteist.autoimageslider.SliderAnimations;
 import com.smarteist.autoimageslider.SliderView;
 
+import io.paperdb.Paper;
+
 public class MainActivity extends AppCompatActivity {
 
     private Context context = MainActivity.this;
@@ -26,6 +28,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        Paper.init(context);
 
         Toolbar myToolbar = findViewById(R.id.main_toolbar);
         setSupportActionBar(myToolbar);
@@ -64,8 +68,14 @@ public class MainActivity extends AppCompatActivity {
         int id = item.getItemId();
         switch (id) {
             case R.id.menu_chat:
-                Intent intent = new Intent(context, ChatActivity.class);
-                startActivity(intent);
+                Boolean logged_in = Paper.book().read("logged_in");
+                if (logged_in) {
+                    Intent intent = new Intent(context, ChatActivity.class);
+                    startActivity(intent);
+                } else {
+                    Intent intent = new Intent(context, LoginActivity.class);
+                    startActivity(intent);
+                }
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
