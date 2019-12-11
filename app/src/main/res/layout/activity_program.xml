@@ -7,6 +7,25 @@
     android:background="@drawable/bg_img_blue"
     tools:context=".ProgramActivity">
 
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/program_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:background="@color/colorBlack1"
+        android:elevation="4dp"
+        android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+        app:title="Program Matahati"
+        app:titleTextColor="@color/colorWhite1" />
 
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/program_recyclerview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/program_toolbar"
+        android:layout_marginTop="10dp" />
 
 </RelativeLayout>
