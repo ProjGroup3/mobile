@@ -74,19 +74,6 @@ public class ContactActivity extends AppCompatActivity {
 //                            resetForm("failed");
 //                        }
 //                    });
-//                    service.getVocabCategories().enqueue(new Callback<HashMap<String, Object>>() {
-//                        @Override
-//                        public void onResponse(Call<HashMap<String, Object>> call, Response<HashMap<String, Object>> response) {
-//                            Toast.makeText(context, "Terkirim " + response.body().get("status_code").toString(), Toast.LENGTH_SHORT).show();
-//                            resetForm("success");
-//                        }
-//
-//                        @Override
-//                        public void onFailure(Call<HashMap<String, Object>> call, Throwable t) {
-//                            Log.d("RESPONSE", t.getMessage());
-//                            resetForm("failed");
-//                        }
-//                    });
                     resetForm("success");
                 } else {
                     Toast.makeText(context, "Tolong lengkapi form", Toast.LENGTH_SHORT).show();

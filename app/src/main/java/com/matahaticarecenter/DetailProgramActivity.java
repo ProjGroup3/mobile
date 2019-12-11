@@ -26,8 +26,13 @@ public class DetailProgramActivity extends AppCompatActivity {
         TextView description = findViewById(R.id.detail_program_text);
         description.setText(getIntent().getStringExtra("DESC"));
 
-        Glide.with(DetailProgramActivity.this).load(getIntent().getStringExtra("IMG"))
-                .into((ImageView) findViewById(R.id.detail_program_img));
+        if (getIntent().getStringExtra("IMG") != null) {
+            Glide.with(DetailProgramActivity.this).load(getIntent().getStringExtra("IMG"))
+                    .into((ImageView) findViewById(R.id.detail_program_img));
+        } else {
+            Glide.with(DetailProgramActivity.this).load(getIntent().getIntExtra("IMG", 0))
+                    .into((ImageView) findViewById(R.id.detail_program_img));
+        }
 
         Log.d("INTENT_GET", String.valueOf(getIntent().getExtras()));
     }

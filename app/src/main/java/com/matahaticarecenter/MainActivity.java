@@ -14,6 +14,7 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.cardview.widget.CardView;
 
 import com.matahaticarecenter.adapter.SliderAdapter;
+import com.matahaticarecenter.model.UserModel;
 import com.smarteist.autoimageslider.IndicatorAnimations;
 import com.smarteist.autoimageslider.SliderAnimations;
 import com.smarteist.autoimageslider.SliderView;
@@ -49,43 +50,52 @@ public class MainActivity extends AppCompatActivity {
         buttonOnclick(partnerBtn, PartnerActivity.class, "");
 
         SliderView sliderView = findViewById(R.id.main_image_slider);
-
         SliderAdapter sliderAdapter = new SliderAdapter(context);
-
         sliderView.setSliderAdapter(sliderAdapter);
-
-        sliderView.setIndicatorAnimation(IndicatorAnimations.WORM); //set indicator animation by using SliderLayout.IndicatorAnimations. :WORM or THIN_WORM or COLOR or DROP or FILL or NONE or SCALE or SCALE_DOWN or SLIDE and SWAP!!
+        sliderView.setIndicatorAnimation(IndicatorAnimations.WORM);
         sliderView.setSliderTransformAnimation(SliderAnimations.SIMPLETRANSFORMATION);
         sliderView.setAutoCycleDirection(SliderView.AUTO_CYCLE_DIRECTION_BACK_AND_FORTH);
         sliderView.setIndicatorSelectedColor(Color.WHITE);
         sliderView.setIndicatorUnselectedColor(Color.GRAY);
-        sliderView.setScrollTimeInSec(4); //set scroll delay in seconds :
+        sliderView.setScrollTimeInSec(4);
         sliderView.startAutoCycle();
     }
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        int id = item.getItemId();
-        switch (id) {
-            case R.id.menu_chat:
-                Boolean logged_in = Paper.book().read("logged_in");
-                if (logged_in) {
-                    Intent intent = new Intent(context, ChatActivity.class);
-                    startActivity(intent);
-                } else {
-                    Intent intent = new Intent(context, LoginActivity.class);
-                    startActivity(intent);
-                }
-                return true;
-            default:
-                return super.onOptionsItemSelected(item);
+        if (item.getItemId() == R.id.menu_chat) {
+            UserModel user = Paper.book().read("user");
+            if (user != null) {
+                Intent intent = new Intent(context, ChatActivity.class);
+                startActivity(intent);
+            } else {
+                Intent intent = new Intent(context, LoginActivity.class);
+                startActivity(intent);
+            }
+            return true;
+        } else if (item.getItemId() == R.id.menu_logout) {
+            Paper.book().delete("user");
+            item.setVisible(false);
         }
+        return super.onOptionsItemSelected(item);
     }
 
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_main, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onPrepareOptionsMenu(Menu menu) {
+        MenuItem logout = menu.findItem(R.id.menu_logout);
+        UserModel user = Paper.book().read("user");
+        if (user != null) {
+            logout.setVisible(true);
+        } else {
+            logout.setVisible(false);
+        }
         return true;
     }
 

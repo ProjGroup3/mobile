@@ -16,6 +16,7 @@ import com.bumptech.glide.Glide;
 import com.matahaticarecenter.DetailProgramActivity;
 import com.matahaticarecenter.R;
 import com.matahaticarecenter.model.GalleryModel;
+import com.matahaticarecenter.networking.RetrofitClientInstance;
 
 import java.util.List;
 
@@ -37,14 +38,14 @@ public class GalleryAdapter extends RecyclerView.Adapter<GalleryAdapter.ViewHold
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, final int position) {
-        Glide.with(context).load(galleryModels.get(position).getUrl()).into(holder.imageView);
-        holder.textView.setText(galleryModels.get(position).getCaption());
+        Glide.with(context).load(RetrofitClientInstance.IMG_URL + galleryModels.get(position).getFile()).into(holder.imageView);
+        holder.textView.setText(galleryModels.get(position).getName());
         holder.cardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(context, DetailProgramActivity.class);
-                intent.putExtra("IMG", galleryModels.get(position).getUrl());
-                intent.putExtra("TITLE", galleryModels.get(position).getCaption());
+                intent.putExtra("IMG", galleryModels.get(position).getFile());
+                intent.putExtra("TITLE", galleryModels.get(position).getName());
                 context.startActivity(intent);
             }
         });

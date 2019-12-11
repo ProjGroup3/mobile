@@ -3,16 +3,16 @@ package com.matahaticarecenter.model;
 public class GalleryModel {
 
     private String id;
-    private String url;
-    private String caption;
+    private String name;
+    private String file;
 
     public GalleryModel() {
     }
 
-    public GalleryModel(String id, String url, String caption) {
+    public GalleryModel(String id, String name, String file) {
         this.id = id;
-        this.url = url;
-        this.caption = caption;
+        this.name = name;
+        this.file = file;
     }
 
     public String getId() {
@@ -23,19 +23,19 @@ public class GalleryModel {
         this.id = id;
     }
 
-    public String getUrl() {
-        return url;
+    public String getName() {
+        return name;
     }
 
-    public void setUrl(String url) {
-        this.url = url;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public String getCaption() {
-        return caption;
+    public String getFile() {
+        return file;
     }
 
-    public void setCaption(String caption) {
-        this.caption = caption;
+    public void setFile(String file) {
+        this.file = file;
     }
 }
