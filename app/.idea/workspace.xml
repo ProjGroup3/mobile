@@ -7,9 +7,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6f5e57dd-6409-4e02-a468-347fecc26f63" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/caches/gradle_models.ser" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/caches/gradle_models.ser" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/res/layout/activity_partner.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/res/layout/activity_partner.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -65,7 +63,9 @@
         <entry file="file://$PROJECT_DIR$/src/main/res/layout/activity_partner.xml">
           <provider editor-type-id="android-designer2" />
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-9" />
+            <state relative-caret-position="255">
+              <caret line="15" column="44" lean-forward="true" selection-start-line="15" selection-start-column="44" selection-end-line="15" selection-end-column="44" />
+            </state>
           </provider>
         </entry>
       </file>
@@ -124,6 +124,7 @@
         <option value="$PROJECT_DIR$/src/main/res/layout/item_program.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/matahaticarecenter/ProgramActivity.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/matahaticarecenter/adapter/ProgramAdapter.java" />
+        <option value="$PROJECT_DIR$/src/main/res/layout/activity_partner.xml" />
       </list>
     </option>
   </component>
@@ -460,7 +461,9 @@
     <entry file="file://$PROJECT_DIR$/src/main/res/layout/activity_partner.xml">
       <provider editor-type-id="android-designer2" />
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-9" />
+        <state relative-caret-position="255">
+          <caret line="15" column="44" lean-forward="true" selection-start-line="15" selection-start-column="44" selection-end-line="15" selection-end-column="44" />
+        </state>
       </provider>
     </entry>
   </component>

@@ -8,7 +8,26 @@
     android:orientation="vertical"
     tools:context=".PartnerActivity">
 
-    
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/partner_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:background="@color/colorBlack1"
+        android:elevation="4dp"
+        android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+        app:title="Mitra"
+        app:titleTextColor="@color/colorWhite1" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/partner_recyclerview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/partner_toolbar"
+        android:layout_marginTop="10dp" />
 
 
 </RelativeLayout>
