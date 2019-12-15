@@ -3,18 +3,15 @@ package com.matahaticarecenter;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
+import android.graphics.drawable.AnimationDrawable;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
+import android.widget.ScrollView;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
 import androidx.cardview.widget.CardView;
 
 import com.matahaticarecenter.adapter.SliderAdapter;
-import com.matahaticarecenter.model.UserModel;
 import com.smarteist.autoimageslider.IndicatorAnimations;
 import com.smarteist.autoimageslider.SliderAnimations;
 import com.smarteist.autoimageslider.SliderView;
@@ -32,22 +29,20 @@ public class MainActivity extends AppCompatActivity {
 
         Paper.init(context);
 
-        Toolbar myToolbar = findViewById(R.id.main_toolbar);
-        setSupportActionBar(myToolbar);
+        AnimationDrawable animDrawable = (AnimationDrawable) findViewById(R.id.main_layout).getBackground();
+        animDrawable.setEnterFadeDuration(10);
+        animDrawable.setExitFadeDuration(5000);
+        animDrawable.start();
 
         CardView profileBtn = findViewById(R.id.main_profile_btn);
         CardView programBtn = findViewById(R.id.main_program_btn);
         CardView galleryBtn = findViewById(R.id.main_gallery_btn);
         CardView contactBtn = findViewById(R.id.main_contact_btn);
-        CardView program2Btn = findViewById(R.id.main_program_2_btn);
-        CardView partnerBtn = findViewById(R.id.main_partner_btn);
 
-        buttonOnclick(profileBtn, ProfileActivity.class, "");
-        buttonOnclick(programBtn, ProgramActivity.class, "PROGRAM1");
-        buttonOnclick(galleryBtn, GalleryActivity.class, "");
-        buttonOnclick(contactBtn, ContactActivity.class, "");
-        buttonOnclick(program2Btn, ProgramActivity.class, "PROGRAM2");
-        buttonOnclick(partnerBtn, PartnerActivity.class, "");
+        buttonOnclick(profileBtn, ProfileActivity.class);
+        buttonOnclick(programBtn, ProgramActivity.class);
+        buttonOnclick(galleryBtn, GalleryActivity.class);
+        buttonOnclick(contactBtn, ContactActivity.class);
 
         SliderView sliderView = findViewById(R.id.main_image_slider);
         SliderAdapter sliderAdapter = new SliderAdapter(context);
@@ -61,51 +56,11 @@ public class MainActivity extends AppCompatActivity {
         sliderView.startAutoCycle();
     }
 
-    @Override
-    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        if (item.getItemId() == R.id.menu_chat) {
-            UserModel user = Paper.book().read("user");
-            if (user != null) {
-                Intent intent = new Intent(context, ChatActivity.class);
-                startActivity(intent);
-            } else {
-                Intent intent = new Intent(context, LoginActivity.class);
-                startActivity(intent);
-            }
-            return true;
-        } else if (item.getItemId() == R.id.menu_logout) {
-            Paper.book().delete("user");
-            item.setVisible(false);
-        }
-        return super.onOptionsItemSelected(item);
-    }
-
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu_main, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onPrepareOptionsMenu(Menu menu) {
-        MenuItem logout = menu.findItem(R.id.menu_logout);
-        UserModel user = Paper.book().read("user");
-        if (user != null) {
-            logout.setVisible(true);
-        } else {
-            logout.setVisible(false);
-        }
-        return true;
-    }
-
-    private void buttonOnclick(CardView cardView, final Class c, final String somekey) {
+    private void buttonOnclick(CardView cardView, final Class c) {
         cardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(context, c);
-                intent.putExtra("KEY", somekey);
-                startActivity(intent);
+                startActivity(new Intent(context, c));
             }
         });
     }

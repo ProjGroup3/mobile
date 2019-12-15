@@ -21,11 +21,30 @@
         app:title="Program Matahati"
         app:titleTextColor="@color/colorWhite1" />
 
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/program_tablayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/program_toolbar"
+        app:tabBackground="@color/white">
+
+        <com.google.android.material.tabs.TabItem
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Utama" />
+
+        <com.google.android.material.tabs.TabItem
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Pendidikan Berkarakter" />
+
+    </com.google.android.material.tabs.TabLayout>
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/program_recyclerview"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/program_toolbar"
+        android:layout_below="@+id/program_tablayout"
         android:layout_marginTop="10dp" />
 
 </RelativeLayout>

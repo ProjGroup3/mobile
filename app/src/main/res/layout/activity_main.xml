@@ -5,7 +5,7 @@
     android:id="@+id/main_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/bg_img_blue"
+    android:background="@drawable/gradient_animation"
     tools:context=".MainActivity">
 
     <LinearLayout
@@ -13,272 +13,244 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <androidx.appcompat.widget.Toolbar
-            android:id="@+id/main_toolbar"
-            android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            android:background="@color/colorBlack1"
-            android:elevation="4dp"
-            android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
-            app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
-            app:title="Menu"
-            app:titleTextColor="@color/colorWhite1" />
-
-        <androidx.cardview.widget.CardView
+        <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="12dp"
-            android:clickable="true"
-            android:focusable="true"
-            android:foreground="?android:attr/selectableItemBackground"
-            app:cardCornerRadius="6dp">
+            android:layout_marginTop="50dp"
+            android:text="Selamat Datang di"
+            android:textAlignment="center" />
 
-            <com.smarteist.autoimageslider.SliderView
-                android:id="@+id/main_image_slider"
-                android:layout_width="match_parent"
-                android:layout_height="100dp"
-                app:sliderAnimationDuration="600"
-                app:sliderAutoCycleDirection="back_and_forth"
-                app:sliderAutoCycleEnabled="true"
-                app:sliderCircularHandlerEnabled="true"
-                app:sliderIndicatorAnimationDuration="600"
-                app:sliderIndicatorGravity="center_horizontal|bottom"
-                app:sliderIndicatorMargin="15dp"
-                app:sliderIndicatorOrientation="horizontal"
-                app:sliderIndicatorPadding="3dp"
-                app:sliderIndicatorRadius="2dp"
-                app:sliderIndicatorSelectedColor="#5A5A5A"
-                app:sliderIndicatorUnselectedColor="#FFF"
-                app:sliderScrollTimeInSec="1"
-                app:sliderStartAutoCycle="true" />
-
-        </androidx.cardview.widget.CardView>
-
-        <LinearLayout
+        <TextView
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="50dp"
+            android:shadowColor="#71c9ce"
+            android:shadowDx="1"
+            android:shadowDy="1"
+            android:shadowRadius="1"
+            android:text="Matahati Care Center"
+            android:textAlignment="center"
+            android:textSize="30sp"
+            android:textStyle="bold" />
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:orientation="horizontal">
+        <GridLayout
+            android:layout_width="match_parent"
+            android:layout_height="500dp"
+            android:alignmentMode="alignMargins"
+            android:columnCount="2"
+            android:columnOrderPreserved="false"
+            android:orientation="vertical"
+            android:rowCount="3">
 
-                <androidx.cardview.widget.CardView
-                    android:id="@+id/main_profile_btn"
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/main_profile_btn"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_rowWeight="1"
+                android:layout_columnWeight="1"
+                android:layout_margin="16dp"
+                android:clickable="true"
+                android:elevation="8dp"
+                android:focusable="true"
+                android:foreground="?android:attr/selectableItemBackground"
+                app:cardCornerRadius="8dp">
+
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_margin="12dp"
-                    android:layout_weight="1"
-                    android:clickable="true"
-                    android:focusable="true"
-                    android:foreground="?android:attr/selectableItemBackground"
-                    app:cardCornerRadius="6dp">
+                    android:orientation="vertical">
 
-                    <LinearLayout
+                    <ImageView
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:contentDescription="@string/content_description"
+                        android:src="@drawable/logo" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="3"
+                        android:background="#f38181"
                         android:gravity="center"
-                        android:orientation="vertical">
+                        android:shadowColor="@color/white"
+                        android:shadowDx="1"
+                        android:shadowDy="1"
+                        android:shadowRadius="1"
+                        android:text="Profil Matahati"
+                        android:textColor="#222831" />
 
-                        <ImageView
-                            android:layout_width="100dp"
-                            android:layout_height="100dp"
-                            android:contentDescription="@string/content_description"
-                            android:src="@drawable/logo" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Profil Matahati" />
-
-                    </LinearLayout>
+                </LinearLayout>
 
 
-                </androidx.cardview.widget.CardView>
+            </androidx.cardview.widget.CardView>
 
-                <androidx.cardview.widget.CardView
-                    android:id="@+id/main_program_btn"
+            <androidx.cardview.widget.CardView
+                android:id="@+id/main_program_btn"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_rowWeight="1"
+                android:layout_columnWeight="1"
+                android:layout_margin="16dp"
+                android:clickable="true"
+                android:elevation="8dp"
+                android:focusable="true"
+                android:foreground="?android:attr/selectableItemBackground"
+                app:cardCornerRadius="8dp">
+
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_margin="12dp"
-                    android:layout_weight="1"
-                    android:clickable="true"
-                    android:focusable="true"
-                    android:foreground="?android:attr/selectableItemBackground"
-                    app:cardCornerRadius="6dp">
+                    android:orientation="vertical">
 
-                    <LinearLayout
+                    <ImageView
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:contentDescription="@string/content_description"
+                        android:src="@drawable/program_2_img" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_weight="3"
+                        android:background="#eaffd0"
                         android:gravity="center"
-                        android:orientation="vertical">
+                        android:shadowColor="@color/white"
+                        android:shadowDx="1"
+                        android:shadowDy="1"
+                        android:shadowRadius="1"
+                        android:text="Program Matahati"
+                        android:textColor="#222831" />
 
-                        <ImageView
-                            android:layout_width="100dp"
-                            android:layout_height="100dp"
-                            android:contentDescription="@string/content_description"
-                            android:src="@drawable/program_2_img" />
+                </LinearLayout>
 
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center_horizontal"
-                            android:text="Program Matahati" />
+            </androidx.cardview.widget.CardView>
 
-                    </LinearLayout>
 
-                </androidx.cardview.widget.CardView>
+            <androidx.cardview.widget.CardView
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_rowWeight="1"
+                android:layout_columnSpan="2"
+                android:layout_columnWeight="1"
+                android:layout_margin="16dp"
+                android:clickable="true"
+                android:elevation="8dp"
+                android:focusable="true"
+                android:foreground="?android:attr/selectableItemBackground"
+                app:cardCornerRadius="8dp">
 
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:orientation="horizontal">
-
-                <androidx.cardview.widget.CardView
-                    android:id="@+id/main_gallery_btn"
+                <com.smarteist.autoimageslider.SliderView
+                    android:id="@+id/main_image_slider"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_margin="12dp"
-                    android:layout_weight="1"
-                    android:clickable="true"
-                    android:focusable="true"
-                    android:foreground="?android:attr/selectableItemBackground"
-                    app:cardCornerRadius="6dp">
+                    app:sliderAnimationDuration="600"
+                    app:sliderAutoCycleDirection="back_and_forth"
+                    app:sliderAutoCycleEnabled="true"
+                    app:sliderCircularHandlerEnabled="true"
+                    app:sliderIndicatorAnimationDuration="600"
+                    app:sliderIndicatorGravity="center_horizontal|bottom"
+                    app:sliderIndicatorMargin="15dp"
+                    app:sliderIndicatorOrientation="horizontal"
+                    app:sliderIndicatorPadding="3dp"
+                    app:sliderIndicatorRadius="2dp"
+                    app:sliderIndicatorSelectedColor="#5A5A5A"
+                    app:sliderIndicatorUnselectedColor="#FFF"
+                    app:sliderScrollTimeInSec="1"
+                    app:sliderStartAutoCycle="true" />
 
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:gravity="center"
-                        android:orientation="vertical">
+            </androidx.cardview.widget.CardView>
 
-                        <ImageView
-                            android:layout_width="100dp"
-                            android:layout_height="100dp"
-                            android:contentDescription="@string/content_description"
-                            android:src="@drawable/gallery_img" />
+            <androidx.cardview.widget.CardView
+                android:id="@+id/main_contact_btn"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_rowWeight="1"
+                android:layout_columnWeight="1"
+                android:layout_margin="16dp"
+                android:clickable="true"
+                android:elevation="8dp"
+                android:focusable="true"
+                android:foreground="?android:attr/selectableItemBackground"
+                app:cardCornerRadius="8dp">
 
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Galeri" />
-
-                    </LinearLayout>
-
-                </androidx.cardview.widget.CardView>
-
-                <androidx.cardview.widget.CardView
-                    android:id="@+id/main_contact_btn"
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_margin="12dp"
-                    android:layout_weight="1"
-                    android:clickable="true"
-                    android:focusable="true"
-                    android:foreground="?android:attr/selectableItemBackground"
-                    app:cardCornerRadius="6dp">
+                    android:orientation="vertical">
 
-                    <LinearLayout
+                    <ImageView
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:contentDescription="@string/content_description"
+                        android:src="@drawable/contact_2_img" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="3"
+                        android:background="#fce38a"
                         android:gravity="center"
-                        android:orientation="vertical">
+                        android:shadowColor="@color/white"
+                        android:shadowDx="1"
+                        android:shadowDy="1"
+                        android:shadowRadius="1"
+                        android:text="Kontak"
+                        android:textColor="#222831" />
 
-                        <ImageView
-                            android:layout_width="100dp"
-                            android:layout_height="100dp"
-                            android:contentDescription="@string/content_description"
-                            android:src="@drawable/contact_2_img" />
+                </LinearLayout>
 
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Kontak" />
+            </androidx.cardview.widget.CardView>
 
-                    </LinearLayout>
+            <androidx.cardview.widget.CardView
+                android:id="@+id/main_gallery_btn"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_rowWeight="1"
+                android:layout_columnSpan="2"
+                android:layout_columnWeight="1"
+                android:layout_margin="16dp"
+                android:clickable="true"
+                android:elevation="8dp"
+                android:focusable="true"
+                android:foreground="?android:attr/selectableItemBackground"
+                app:cardCornerRadius="8dp">
 
-                </androidx.cardview.widget.CardView>
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:orientation="horizontal">
-
-                <androidx.cardview.widget.CardView
-                    android:id="@+id/main_program_2_btn"
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_margin="12dp"
-                    android:layout_weight="1"
-                    android:clickable="true"
-                    android:focusable="true"
-                    android:foreground="?android:attr/selectableItemBackground"
-                    app:cardCornerRadius="6dp">
+                    android:orientation="vertical">
 
-                    <LinearLayout
+                    <ImageView
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:gravity="center"
-                        android:orientation="vertical">
+                        android:layout_weight="1"
+                        android:contentDescription="@string/content_description"
+                        android:src="@drawable/gallery_img" />
 
-                        <ImageView
-                            android:layout_width="100dp"
-                            android:layout_height="100dp"
-                            android:contentDescription="@string/content_description"
-                            android:src="@drawable/program_img" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Program \nPendampingan \nPendidikan \nBerkarakter"
-                            android:textAlignment="center" />
-
-                    </LinearLayout>
-
-                </androidx.cardview.widget.CardView>
-
-                <androidx.cardview.widget.CardView
-                    android:id="@+id/main_partner_btn"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_margin="12dp"
-                    android:layout_weight="1"
-                    android:clickable="true"
-                    android:focusable="true"
-                    android:foreground="?android:attr/selectableItemBackground"
-                    app:cardCornerRadius="6dp">
-
-                    <LinearLayout
+                    <TextView
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
+                        android:layout_weight="3"
+                        android:background="#95e1d3"
                         android:gravity="center"
-                        android:orientation="vertical">
+                        android:shadowColor="@color/white"
+                        android:shadowDx="1"
+                        android:shadowDy="1"
+                        android:shadowRadius="1"
+                        android:text="Galeri"
+                        android:textColor="#222831" />
 
-                        <ImageView
-                            android:layout_width="100dp"
-                            android:layout_height="100dp"
-                            android:contentDescription="@string/content_description"
-                            android:src="@drawable/contact_img" />
+                </LinearLayout>
 
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Mitra" />
+            </androidx.cardview.widget.CardView>
 
-                    </LinearLayout>
+        </GridLayout>
 
-                </androidx.cardview.widget.CardView>
-
-            </LinearLayout>
-
-        </LinearLayout>
 
     </LinearLayout>
 

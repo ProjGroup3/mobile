@@ -2,11 +2,13 @@ package com.matahaticarecenter;
 
 import android.app.Dialog;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.method.ScrollingMovementMethod;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -37,7 +39,7 @@ public class ProfileActivity extends AppCompatActivity {
         listView1.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                showDialog(String.valueOf(adapter1.getItem(i)),String.valueOf(value1.getItem(i)));
+                showDialog(String.valueOf(adapter1.getItem(i)), String.valueOf(value1.getItem(i)));
             }
         });
 
@@ -47,7 +49,15 @@ public class ProfileActivity extends AppCompatActivity {
         listView2.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                showDialog(String.valueOf(adapter2.getItem(i)),String.valueOf(value2.getItem(i)));
+                showDialog(String.valueOf(adapter2.getItem(i)), String.valueOf(value2.getItem(i)));
+            }
+        });
+
+        Button mitraBtn = findViewById(R.id.profile_mitra_btn);
+        mitraBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(context, PartnerActivity.class));
             }
         });
     }
