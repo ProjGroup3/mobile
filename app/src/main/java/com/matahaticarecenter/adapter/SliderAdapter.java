@@ -1,7 +1,7 @@
 package com.matahaticarecenter.adapter;
 
+import android.app.Dialog;
 import android.content.Context;
-import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,7 +9,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
-import com.matahaticarecenter.DetailProgramActivity;
+import com.github.chrisbanes.photoview.PhotoView;
 import com.matahaticarecenter.R;
 import com.smarteist.autoimageslider.SliderViewAdapter;
 
@@ -30,55 +30,37 @@ public class SliderAdapter extends SliderViewAdapter<SliderAdapter.ViewHolder> {
 
     @Override
     public void onBindViewHolder(ViewHolder viewHolder, final int position) {
-        final int imgs[] = {
+        final int[] imgs = {
                 R.drawable.picture_1,
                 R.drawable.picture_2,
                 R.drawable.picture_3,
                 R.drawable.picture_4,
         };
-        final String titles[] = {
+        final String[] titles = {
                 "Pelantikan Duta",
                 "Travel Edukasi",
                 "Positive Character Tour",
                 "Positive Character Tour (ASEAN)",
         };
+
+        viewHolder.textViewDescription.setText(titles[position]);
+        Glide.with(viewHolder.itemView)
+                .load(imgs[position])
+                .into(viewHolder.imageViewBackground);
+
         viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(context, DetailProgramActivity.class);
-                intent.putExtra("IMG", imgs[position]);
-                intent.putExtra("TITLE", titles[position]);
-                intent.putExtra("DESC", "DESCRIPTION ....'");
-                context.startActivity(intent);
+                Dialog dialog = new Dialog(context);
+                dialog.setContentView(R.layout.dialog_zoom_image);
+                PhotoView photoView = dialog.findViewById(R.id.imageView);
+                Glide.with(context)
+                        .load(imgs[position])
+                        .into(photoView);
+                dialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
+                dialog.show();
             }
         });
-        switch (position) {
-            case 0:
-                viewHolder.textViewDescription.setText("Pelantikan Duta");
-                Glide.with(viewHolder.itemView)
-                        .load(R.drawable.picture_1)
-                        .into(viewHolder.imageViewBackground);
-                break;
-            case 1:
-                viewHolder.textViewDescription.setText("Travel Edukasi");
-                Glide.with(viewHolder.itemView)
-                        .load(R.drawable.picture_2)
-                        .into(viewHolder.imageViewBackground);
-                break;
-            case 2:
-                viewHolder.textViewDescription.setText("Positive Character Tour");
-                Glide.with(viewHolder.itemView)
-                        .load(R.drawable.picture_3)
-                        .into(viewHolder.imageViewBackground);
-                break;
-            default:
-                viewHolder.textViewDescription.setText("Positive Character Tour (ASEAN)");
-                Glide.with(viewHolder.itemView)
-                        .load(R.drawable.picture_4)
-                        .into(viewHolder.imageViewBackground);
-                break;
-
-        }
     }
 
     @Override

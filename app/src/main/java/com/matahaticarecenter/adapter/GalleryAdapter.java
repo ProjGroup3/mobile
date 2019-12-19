@@ -1,7 +1,7 @@
 package com.matahaticarecenter.adapter;
 
+import android.app.Dialog;
 import android.content.Context;
-import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,7 +13,7 @@ import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
-import com.matahaticarecenter.DetailProgramActivity;
+import com.github.chrisbanes.photoview.PhotoView;
 import com.matahaticarecenter.R;
 import com.matahaticarecenter.model.GalleryModel;
 import com.matahaticarecenter.networking.RetrofitClientInstance;
@@ -38,15 +38,22 @@ public class GalleryAdapter extends RecyclerView.Adapter<GalleryAdapter.ViewHold
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, final int position) {
-        Glide.with(context).load(RetrofitClientInstance.IMG_URL + galleryModels.get(position).getFile()).into(holder.imageView);
+        Glide.with(context)
+                .load(RetrofitClientInstance.IMG_URL + galleryModels.get(position).getFile())
+                .into(holder.imageView);
         holder.textView.setText(galleryModels.get(position).getName());
+
         holder.cardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(context, DetailProgramActivity.class);
-                intent.putExtra("IMG", galleryModels.get(position).getFile());
-                intent.putExtra("TITLE", galleryModels.get(position).getName());
-                context.startActivity(intent);
+                Dialog dialog = new Dialog(context);
+                dialog.setContentView(R.layout.dialog_zoom_image);
+                PhotoView photoView = dialog.findViewById(R.id.imageView);
+                Glide.with(context)
+                        .load(RetrofitClientInstance.IMG_URL + galleryModels.get(position).getFile())
+                        .into(photoView);
+                dialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
+                dialog.show();
             }
         });
     }

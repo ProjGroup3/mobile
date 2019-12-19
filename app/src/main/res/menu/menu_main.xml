@@ -5,15 +5,15 @@
     tools:context="example.javatpoint.com.optionmenu.MainActivity">
 
     <item
-        android:id="@+id/menu_logout"
-        android:icon="@drawable/ic_logout"
-        android:title="Logout"
-        app:showAsAction="always" />
-
-    <item
         android:id="@+id/menu_chat"
         android:icon="@drawable/ic_chat_white"
         android:title="Chat"
+        app:showAsAction="always" />
+
+    <item
+        android:id="@+id/menu_account"
+        android:icon="@drawable/ic_account_circle"
+        android:title="Account"
         app:showAsAction="always" />
 
 </menu>
