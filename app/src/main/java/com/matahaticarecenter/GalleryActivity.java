@@ -48,9 +48,6 @@ public class GalleryActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
 
-        galleryModels.add(new GalleryModel("1", "Gambar 1", "https://koenig-media.raywenderlich.com/uploads/2016/08/GridView-feature.png"));
-        galleryModels.add(new GalleryModel("2", "Gambar 2", "https://koenig-media.raywenderlich.com/uploads/2016/08/GridView-feature.png"));
-
         galleryAdapter = new GalleryAdapter(galleryModels, context);
         recyclerView = findViewById(R.id.gallery_recyclerview);
         recyclerView.setLayoutManager(new GridLayoutManager(context, 3));

@@ -12,7 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-
+        <activity android:name=".AccountActivity"></activity>
         <activity android:name=".ChatActivity" />
         <activity android:name=".TestingActivity" />
         <activity android:name=".DetailProgramActivity" />
@@ -32,6 +32,5 @@
         <activity android:name=".RegisterActivity" />
         <activity android:name=".LoginActivity" />
     </application>
-
 
 </manifest>
