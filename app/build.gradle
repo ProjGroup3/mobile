@@ -52,6 +52,9 @@ dependencies {
     implementation 'com.google.firebase:firebase-auth:19.2.0'
     implementation 'com.google.firebase:firebase-storage:19.1.0'
 
+    implementation 'com.firebaseui:firebase-ui-database:4.3.2'
+    implementation "com.firebaseui:firebase-ui-auth:4.3.2"
+
     // db
     implementation 'io.paperdb:paperdb:2.6'
 
