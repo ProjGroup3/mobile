@@ -5,7 +5,7 @@
     android:id="@+id/main_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/gradient_animation"
+    android:background="@drawable/gradient_end"
     tools:context=".MainActivity">
 
     <LinearLayout
@@ -24,6 +24,8 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="30dp"
             android:text="Selamat Datang di"
+            android:textSize="35dp"
+            android:fontFamily="@font/rither"
             android:textAlignment="center" />
 
         <TextView
@@ -35,6 +37,7 @@
             android:shadowDy="1"
             android:shadowRadius="1"
             android:text="Matahati Care Center"
+            android:fontFamily="@font/ambrosia"
             android:textAlignment="center"
             android:textSize="30sp"
             android:textStyle="bold" />
@@ -78,14 +81,16 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_weight="3"
-                        android:background="#f38181"
+                        android:background="#2475B0"
                         android:gravity="center"
                         android:shadowColor="@color/white"
                         android:shadowDx="1"
                         android:shadowDy="1"
                         android:shadowRadius="1"
                         android:text="Profil Matahati"
-                        android:textColor="#222831" />
+                        android:fontFamily="@font/ambrosia"
+                        android:textStyle="bold"
+                        android:textColor="#FFFFFF" />
 
                 </LinearLayout>
 
@@ -115,21 +120,23 @@
                         android:layout_height="match_parent"
                         android:layout_weight="1"
                         android:contentDescription="@string/content_description"
-                        android:src="@drawable/program_2_img" />
+                        android:src="@drawable/lamp" />
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_gravity="center_horizontal"
                         android:layout_weight="3"
-                        android:background="#eaffd0"
+                        android:background="#FAD02E"
                         android:gravity="center"
                         android:shadowColor="@color/white"
                         android:shadowDx="1"
                         android:shadowDy="1"
                         android:shadowRadius="1"
                         android:text="Program Matahati"
-                        android:textColor="#222831" />
+                        android:fontFamily="@font/ambrosia"
+                        android:textStyle="bold"
+                        android:textColor="#FFFFFF" />
 
                 </LinearLayout>
 
@@ -193,20 +200,22 @@
                         android:layout_height="match_parent"
                         android:layout_weight="1"
                         android:contentDescription="@string/content_description"
-                        android:src="@drawable/contact_2_img" />
+                        android:src="@drawable/contact" />
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_weight="3"
-                        android:background="#fce38a"
+                        android:background="#D63031"
                         android:gravity="center"
                         android:shadowColor="@color/white"
                         android:shadowDx="1"
                         android:shadowDy="1"
                         android:shadowRadius="1"
                         android:text="Kontak"
-                        android:textColor="#222831" />
+                        android:fontFamily="@font/ambrosia"
+                        android:textStyle="bold"
+                        android:textColor="#FFFFFF" />
 
                 </LinearLayout>
 
@@ -236,20 +245,22 @@
                         android:layout_height="match_parent"
                         android:layout_weight="1"
                         android:contentDescription="@string/content_description"
-                        android:src="@drawable/gallery_img" />
+                        android:src="@drawable/gallery" />
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_weight="3"
-                        android:background="#95e1d3"
+                        android:background="#1BCA9B"
                         android:gravity="center"
                         android:shadowColor="@color/white"
                         android:shadowDx="1"
                         android:shadowDy="1"
                         android:shadowRadius="1"
                         android:text="Galeri"
-                        android:textColor="#222831" />
+                        android:fontFamily="@font/ambrosia"
+                        android:textStyle="bold"
+                        android:textColor="#FFFFFF" />
 
                 </LinearLayout>
 
