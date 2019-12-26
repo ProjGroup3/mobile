@@ -23,24 +23,35 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="30dp"
-            android:text="Selamat Datang di"
-            android:textSize="35dp"
             android:fontFamily="@font/rither"
-            android:textAlignment="center" />
+            android:text="Selamat Datang di"
+            android:textAlignment="center"
+            android:textSize="35dp" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="50dp"
+            android:fontFamily="@font/ambrosia"
             android:shadowColor="#71c9ce"
             android:shadowDx="1"
             android:shadowDy="1"
             android:shadowRadius="1"
             android:text="Matahati Care Center"
-            android:fontFamily="@font/ambrosia"
             android:textAlignment="center"
             android:textSize="30sp"
             android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/home_admin_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:background="@drawable/button_send"
+            android:text="Admin"
+            android:textColor="@color/white"
+            android:visibility="gone" />
 
         <GridLayout
             android:layout_width="match_parent"
@@ -50,7 +61,6 @@
             android:columnOrderPreserved="false"
             android:orientation="vertical"
             android:rowCount="3">
-
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/main_profile_btn"
@@ -82,15 +92,15 @@
                         android:layout_height="match_parent"
                         android:layout_weight="3"
                         android:background="#2475B0"
+                        android:fontFamily="@font/ambrosia"
                         android:gravity="center"
                         android:shadowColor="@color/white"
                         android:shadowDx="1"
                         android:shadowDy="1"
                         android:shadowRadius="1"
                         android:text="Profil Matahati"
-                        android:fontFamily="@font/ambrosia"
-                        android:textStyle="bold"
-                        android:textColor="#FFFFFF" />
+                        android:textColor="#FFFFFF"
+                        android:textStyle="bold" />
 
                 </LinearLayout>
 
@@ -128,15 +138,15 @@
                         android:layout_gravity="center_horizontal"
                         android:layout_weight="3"
                         android:background="#FAD02E"
+                        android:fontFamily="@font/ambrosia"
                         android:gravity="center"
                         android:shadowColor="@color/white"
                         android:shadowDx="1"
                         android:shadowDy="1"
                         android:shadowRadius="1"
                         android:text="Program Matahati"
-                        android:fontFamily="@font/ambrosia"
-                        android:textStyle="bold"
-                        android:textColor="#FFFFFF" />
+                        android:textColor="#FFFFFF"
+                        android:textStyle="bold" />
 
                 </LinearLayout>
 
@@ -207,15 +217,15 @@
                         android:layout_height="match_parent"
                         android:layout_weight="3"
                         android:background="#D63031"
+                        android:fontFamily="@font/ambrosia"
                         android:gravity="center"
                         android:shadowColor="@color/white"
                         android:shadowDx="1"
                         android:shadowDy="1"
                         android:shadowRadius="1"
                         android:text="Kontak"
-                        android:fontFamily="@font/ambrosia"
-                        android:textStyle="bold"
-                        android:textColor="#FFFFFF" />
+                        android:textColor="#FFFFFF"
+                        android:textStyle="bold" />
 
                 </LinearLayout>
 
@@ -252,15 +262,15 @@
                         android:layout_height="match_parent"
                         android:layout_weight="3"
                         android:background="#1BCA9B"
+                        android:fontFamily="@font/ambrosia"
                         android:gravity="center"
                         android:shadowColor="@color/white"
                         android:shadowDx="1"
                         android:shadowDy="1"
                         android:shadowRadius="1"
                         android:text="Galeri"
-                        android:fontFamily="@font/ambrosia"
-                        android:textStyle="bold"
-                        android:textColor="#FFFFFF" />
+                        android:textColor="#FFFFFF"
+                        android:textStyle="bold" />
 
                 </LinearLayout>
 

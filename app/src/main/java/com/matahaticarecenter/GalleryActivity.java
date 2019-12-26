@@ -4,31 +4,25 @@ import android.content.Context;
 import android.os.Bundle;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QuerySnapshot;
 import com.matahaticarecenter.adapter.GalleryAdapter;
 import com.matahaticarecenter.model.GalleryModel;
-import com.matahaticarecenter.model.ResponseGallery;
-import com.matahaticarecenter.model.ResponseLogin;
-import com.matahaticarecenter.networking.NetworkService;
-import com.matahaticarecenter.networking.RetrofitClientInstance;
+import com.matahaticarecenter.model.ResModel;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
-import retrofit2.Retrofit;
-import retrofit2.converter.gson.GsonConverterFactory;
-
 public class GalleryActivity extends AppCompatActivity {
-
-    private NetworkService service = RetrofitClientInstance.getRetrofitInstance()
-            .create(NetworkService.class);
 
     private RecyclerView recyclerView;
     private GalleryAdapter galleryAdapter;
@@ -40,9 +34,6 @@ public class GalleryActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_gallery);
 
-        Call<ResponseGallery> galleryCall = service.getGalleryCall();
-
-
         Toolbar myToolbar = findViewById(R.id.gallery_toolbar);
         setSupportActionBar(myToolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -53,25 +44,21 @@ public class GalleryActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(new GridLayoutManager(context, 3));
         recyclerView.setAdapter(galleryAdapter);
 
-        galleryCall.enqueue(new Callback<ResponseGallery>() {
+        FirebaseFirestore.getInstance().collection("gallery")
+                .get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
             @Override
-            public void onResponse(Call<ResponseGallery> call, Response<ResponseGallery> response) {
-                if (response.isSuccessful()) {
-                    if (response.body() != null && response.body().getStatus_code().equals(200)) {
-                        List<GalleryModel> galleryModels_tmp = response.body().getResult();
-                        galleryModels.addAll(galleryModels_tmp);
-                        galleryAdapter.notifyDataSetChanged();
+            public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                if (task.isSuccessful()) {
+                    galleryModels.clear();
+                    for (DocumentSnapshot snapshot : task.getResult().getDocuments()) {
+                        ResModel res = snapshot.toObject(ResModel.class);
+                        galleryModels.add(new GalleryModel(res.getId(), res.getName(), res.getImg()));
                     }
-                } else {
-                    Toast.makeText(context, "Gagal load galeri", Toast.LENGTH_SHORT).show();
+                    galleryAdapter.notifyDataSetChanged();
                 }
             }
-
-            @Override
-            public void onFailure(Call<ResponseGallery> call, Throwable t) {
-                Toast.makeText(context, t.getMessage(), Toast.LENGTH_SHORT).show();
-            }
         });
+
     }
 
     @Override

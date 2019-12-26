@@ -2,27 +2,22 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@drawable/gradient_animation"
+    tools:context=".RegisterActivity">
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/maroon"
-        tools:context=".RegisterActivity">
+        android:paddingStart="30dp"
+        android:paddingEnd="30dp">
 
-        <LinearLayout
+        <ImageView
             android:id="@+id/logo"
             android:layout_width="match_parent"
-            android:layout_height="180dp"
-            android:orientation="horizontal"
+            android:layout_height="wrap_content"
             android:paddingTop="30dp"
-            tools:ignore="MissingConstraints">
-
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:src="@drawable/matahati" />
-        </LinearLayout>
+            android:src="@drawable/logo" />
 
         <LinearLayout
             android:id="@+id/text"
@@ -39,7 +34,7 @@
                 android:fontFamily="sans-serif-black"
                 android:text="Welcome!"
                 android:textAlignment="center"
-                android:textColor="#FFFFFF"
+                android:textColor="@color/colorPrimaryDark"
                 android:textSize="30sp" />
 
             <TextView
@@ -49,7 +44,7 @@
                 android:fontFamily="sans-serif"
                 android:text="Registrasi"
                 android:textAlignment="center"
-                android:textColor="#FFFFFF"
+                android:textColor="@color/colorPrimaryDark"
                 android:textSize="20sp" />
 
         </LinearLayout>
@@ -66,98 +61,86 @@
                 android:id="@+id/input_fullname"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="30dp"
-                android:layout_marginRight="30dp"
-                android:background="@drawable/shapelogin"
-                android:drawableStart="@drawable/ic_person_black_24dp"
+                android:background="@drawable/shape_login"
+                android:drawableStart="@drawable/ic_person"
                 android:drawablePadding="15dp"
                 android:hint="Fullname"
                 android:padding="15dp"
-                android:textColor="@color/white"
-                android:textColorHighlight="@color/white"
-                android:textColorHint="@color/white" />
+                android:textColor="@color/colorPrimaryDark"
+                android:textColorHighlight="@color/colorPrimaryDark"
+                android:textColorHint="@color/colorPrimaryDark" />
 
             <EditText
                 android:id="@+id/input_username"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="30dp"
                 android:layout_marginTop="20dp"
-                android:layout_marginRight="30dp"
-                android:background="@drawable/shapelogin"
-                android:drawableStart="@drawable/ic_person_black_24dp"
+                android:background="@drawable/shape_login"
+                android:drawableStart="@drawable/ic_person"
                 android:drawablePadding="15dp"
                 android:hint="Username"
                 android:padding="15dp"
-                android:textColor="@color/white"
-                android:textColorHighlight="@color/white"
-                android:textColorHint="@color/white" />
+                android:textColor="@color/colorPrimaryDark"
+                android:textColorHighlight="@color/colorPrimaryDark"
+                android:textColorHint="@color/colorPrimaryDark" />
 
             <EditText
                 android:id="@+id/input_phone"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="30dp"
                 android:layout_marginTop="20dp"
-                android:layout_marginRight="30dp"
-                android:background="@drawable/shapelogin"
-                android:drawableStart="@drawable/ic_phone_black_24dp"
+                android:background="@drawable/shape_login"
+                android:drawableStart="@drawable/ic_phone"
                 android:drawablePadding="15dp"
                 android:hint="Phone"
                 android:padding="15dp"
-                android:textColor="@color/white"
-                android:textColorHighlight="@color/white"
-                android:textColorHint="@color/white" />
+                android:textColor="@color/colorPrimaryDark"
+                android:textColorHighlight="@color/colorPrimaryDark"
+                android:textColorHint="@color/colorPrimaryDark" />
 
             <EditText
                 android:id="@+id/input_email"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="30dp"
                 android:layout_marginTop="20dp"
-                android:layout_marginRight="30dp"
-                android:background="@drawable/shapelogin"
-                android:drawableStart="@drawable/ic_email_black_24dp"
+                android:background="@drawable/shape_login"
+                android:drawableStart="@drawable/ic_email"
                 android:drawablePadding="15dp"
                 android:hint="Email"
                 android:padding="15dp"
-                android:textColor="@color/white"
-                android:textColorHighlight="@color/white"
-                android:textColorHint="@color/white" />
+                android:textColor="@color/colorPrimaryDark"
+                android:textColorHighlight="@color/colorPrimaryDark"
+                android:textColorHint="@color/colorPrimaryDark" />
 
             <EditText
                 android:id="@+id/input_password"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="30dp"
                 android:layout_marginTop="20dp"
-                android:layout_marginRight="30dp"
-                android:background="@drawable/shapelogin"
-                android:drawableStart="@drawable/ic_lock_black_24dp"
+                android:background="@drawable/shape_login"
+                android:drawableStart="@drawable/ic_lock"
                 android:drawablePadding="15dp"
                 android:hint="Password"
                 android:inputType="textPassword"
                 android:padding="15dp"
-                android:textColor="@color/white"
-                android:textColorHighlight="@color/white"
-                android:textColorHint="@color/white" />
+                android:textColor="@color/colorPrimaryDark"
+                android:textColorHighlight="@color/colorPrimaryDark"
+                android:textColorHint="@color/colorPrimaryDark" />
 
             <EditText
-                android:id="@+id/confirm_password"
+                android:id="@+id/input_confirm_password"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="30dp"
                 android:layout_marginTop="20dp"
-                android:layout_marginRight="30dp"
-                android:background="@drawable/shapelogin"
-                android:drawableStart="@drawable/ic_lock_black_24dp"
+                android:background="@drawable/shape_login"
+                android:drawableStart="@drawable/ic_lock"
                 android:drawablePadding="15dp"
-                android:hint="Confirmasi Password"
+                android:hint="Konfirmasi Password"
                 android:inputType="textPassword"
                 android:padding="15dp"
-                android:textColor="@color/white"
-                android:textColorHighlight="@color/white"
-                android:textColorHint="@color/white" />
+                android:textColor="@color/colorPrimaryDark"
+                android:textColorHighlight="@color/colorPrimaryDark"
+                android:textColorHint="@color/colorPrimaryDark" />
 
         </LinearLayout>
 
@@ -166,33 +149,32 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/ed"
-            android:layout_marginLeft="30dp"
-            android:layout_marginTop="25dp"
-            android:layout_marginRight="30dp"
-            android:background="@drawable/shapebutton"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/button_send"
             android:text="Register"
-            android:textColor="#FFFFFF" />
+            android:textColor="@color/colorAccent" />
 
-        <LinearLayout
-            android:id="@+id/text2"
+        <ProgressBar
+            android:id="@+id/register_progressbar"
+            style="@style/Widget.AppCompat.ProgressBar.Horizontal"
             android:layout_width="match_parent"
-            android:layout_height="30dp"
+            android:layout_height="wrap_content"
             android:layout_below="@id/btnregister"
-            android:layout_marginTop="40dp"
-            android:layout_marginBottom="40dp"
-            android:orientation="vertical">
+            android:indeterminate="true" />
 
-            <TextView
-                android:id="@+id/user"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:fontFamily="sans-serif"
-                android:text="Login"
-                android:textAlignment="center"
-                android:textColor="#fff"
-                android:textSize="15sp" />
 
-        </LinearLayout>
+        <TextView
+            android:id="@+id/user"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/btnregister"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp"
+            android:fontFamily="sans-serif"
+            android:text="Login"
+            android:textAlignment="center"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="15sp" />
 
     </RelativeLayout>
 </ScrollView>

@@ -7,26 +7,33 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.matahaticarecenter.model.ResponseLogin;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
 import com.matahaticarecenter.model.UserModel;
 import com.matahaticarecenter.networking.NetworkService;
 import com.matahaticarecenter.networking.RetrofitClientInstance;
 
+import java.util.Date;
+
 import io.paperdb.Paper;
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
 
 public class LoginActivity extends AppCompatActivity {
 
     private NetworkService service = RetrofitClientInstance.getRetrofitInstance()
             .create(NetworkService.class);
 
+    ProgressBar progressBar;
     EditText inputUsername, inputPassword;
     Button btnlogin;
     TextView singup;
@@ -40,6 +47,8 @@ public class LoginActivity extends AppCompatActivity {
 
         Paper.init(context);
 
+        progressBar = findViewById(R.id.login_progressbar);
+        progressBar.setVisibility(View.GONE);
         inputUsername = findViewById(R.id.input_username);
         inputPassword = findViewById(R.id.input_password);
         btnlogin = findViewById(R.id.login_btn);
@@ -49,9 +58,10 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if (!inputUsername.getText().toString().isEmpty() && !inputPassword.getText().toString().isEmpty()) {
-                    loginUser(inputUsername.getText().toString(), inputPassword.getText().toString());
+                    progressBar.setVisibility(View.VISIBLE);
+                    loginFirebase(inputUsername.getText().toString(), inputPassword.getText().toString());
                 } else {
-                    Toast.makeText(context, "Isi username dan password", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(context, "Isi email dan password", Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -59,34 +69,52 @@ public class LoginActivity extends AppCompatActivity {
         singup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                finish();
                 Intent i = new Intent(context, RegisterActivity.class);
                 startActivity(i);
             }
         });
     }
 
-    private void loginUser(final String username, String password) {
-        Call<ResponseLogin> loginCall = service.loginCall(username, password);
-        loginCall.enqueue(new Callback<ResponseLogin>() {
-            @Override
-            public void onResponse(Call<ResponseLogin> call, Response<ResponseLogin> response) {
-                if (response.isSuccessful()) {
-                    if (response.body().getStatus_code().equals(200)) {
-                        UserModel userModel = response.body().getResult().get(0);
-                        Paper.book().write("user", userModel);
-
-                        finish();
-                        Toast.makeText(context, "Selamat Datang " + username, Toast.LENGTH_SHORT).show();
+    private void loginFirebase(final String username, final String password) {
+        FirebaseAuth.getInstance().signInWithEmailAndPassword(username, password)
+                .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        if (task.isSuccessful()) {
+                            final String idUser = task.getResult().getUser().getUid();
+                            FirebaseFirestore.getInstance().collection("users")
+                                    .document(idUser)
+                                    .get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+                                @Override
+                                public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                                    if (task.isSuccessful()) {
+                                        Paper.book().write("user", new UserModel(
+                                                task.getResult().getString("id"),
+                                                task.getResult().getString("username"),
+                                                task.getResult().getString("password"),
+                                                task.getResult().getString("level"),
+                                                task.getResult().getString("email"),
+                                                task.getResult().getString("fullname"),
+                                                task.getResult().getString("phone"),
+                                                task.getResult().getString("avatar"),
+                                                true,
+                                                new Date().toString(),
+                                                new Date().toString()
+                                        ));
+                                        Toast.makeText(context, "Selamat Datang " + username, Toast.LENGTH_SHORT).show();
+                                        progressBar.setVisibility(View.GONE);
+                                        finish();
+                                    } else {
+                                        progressBar.setVisibility(View.GONE);
+                                    }
+                                }
+                            });
+                        } else {
+                            progressBar.setVisibility(View.GONE);
+                            Toast.makeText(context, task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                        }
                     }
-                } else {
-                    Toast.makeText(context, "Login gagal", Toast.LENGTH_SHORT).show();
-                }
-            }
-
-            @Override
-            public void onFailure(Call<ResponseLogin> call, Throwable t) {
-                Toast.makeText(context, t.getMessage(), Toast.LENGTH_SHORT).show();
-            }
-        });
+                });
     }
 }

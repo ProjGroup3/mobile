@@ -1,5 +1,7 @@
 package com.matahaticarecenter.model;
 
+import java.util.Date;
+
 public class UserModel {
 
     private String id;
@@ -10,14 +12,14 @@ public class UserModel {
     private String fullname;
     private String phone;
     private String avatar;
-    private String is_verified;
+    private Boolean is_verified;
     private String join_date;
     private String created_at;
 
     public UserModel() {
     }
 
-    public UserModel(String id, String username, String password, String level, String email, String fullname, String phone, String avatar, String is_verified, String join_date, String created_at) {
+    public UserModel(String id, String username, String password, String level, String email, String fullname, String phone, String avatar, Boolean is_verified, String join_date, String created_at) {
         this.id = id;
         this.username = username;
         this.password = password;
@@ -96,11 +98,11 @@ public class UserModel {
         this.avatar = avatar;
     }
 
-    public String getIs_verified() {
+    public Boolean getIs_verified() {
         return is_verified;
     }
 
-    public void setIs_verified(String is_verified) {
+    public void setIs_verified(Boolean is_verified) {
         this.is_verified = is_verified;
     }
 

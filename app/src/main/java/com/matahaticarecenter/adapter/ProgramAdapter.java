@@ -37,7 +37,9 @@ public class ProgramAdapter extends RecyclerView.Adapter<ProgramAdapter.ViewHold
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, final int position) {
-        Glide.with(context).load(programModels.get(position).getImg()).into(holder.imageView);
+        if (!programModels.get(position).getImg().equals("")) {
+            Glide.with(context).load(programModels.get(position).getImg()).into(holder.imageView);
+        }
         holder.textView.setText(programModels.get(position).getTitle());
         holder.cardView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -46,8 +48,6 @@ public class ProgramAdapter extends RecyclerView.Adapter<ProgramAdapter.ViewHold
                 intent.putExtra("IMG", programModels.get(position).getImg());
                 intent.putExtra("TITLE", programModels.get(position).getTitle());
                 intent.putExtra("DESC", programModels.get(position).getDesctiption());
-                intent.putExtra("CONTENT", programModels.get(position).getContent());
-                intent.putExtra("TIME", programModels.get(position).getTime());
                 context.startActivity(intent);
             }
         });

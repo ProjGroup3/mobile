@@ -44,7 +44,7 @@
             android:layout_centerVertical="true"
             android:layout_toStartOf="@id/ic_edit"
             android:paddingHorizontal="10dp"
-            android:src="@drawable/ic_open_in_new_black_24dp"/>
+            android:src="@drawable/ic_open_in_new"/>
 
         <ImageView
             android:id="@+id/ic_edit"

@@ -2,11 +2,11 @@ package com.matahaticarecenter;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import io.paperdb.Paper;
+import com.google.firebase.auth.FirebaseAuth;
 
 public class BaseActivity extends AppCompatActivity {
 
     public boolean isLoggedIn() {
-        return Paper.book().read("user") != null;
+        return FirebaseAuth.getInstance().getCurrentUser() != null;
     }
 }

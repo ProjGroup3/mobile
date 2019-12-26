@@ -16,7 +16,6 @@ import com.bumptech.glide.Glide;
 import com.github.chrisbanes.photoview.PhotoView;
 import com.matahaticarecenter.R;
 import com.matahaticarecenter.model.GalleryModel;
-import com.matahaticarecenter.networking.RetrofitClientInstance;
 
 import java.util.List;
 
@@ -38,9 +37,9 @@ public class GalleryAdapter extends RecyclerView.Adapter<GalleryAdapter.ViewHold
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, final int position) {
-        Glide.with(context)
-                .load(RetrofitClientInstance.IMG_URL + galleryModels.get(position).getFile())
-                .into(holder.imageView);
+        if (!galleryModels.get(position).getFile().equals("")) {
+            Glide.with(context).load(galleryModels.get(position).getFile()).into(holder.imageView);
+        }
         holder.textView.setText(galleryModels.get(position).getName());
 
         holder.cardView.setOnClickListener(new View.OnClickListener() {
@@ -50,7 +49,7 @@ public class GalleryAdapter extends RecyclerView.Adapter<GalleryAdapter.ViewHold
                 dialog.setContentView(R.layout.dialog_zoom_image);
                 PhotoView photoView = dialog.findViewById(R.id.imageView);
                 Glide.with(context)
-                        .load(RetrofitClientInstance.IMG_URL + galleryModels.get(position).getFile())
+                        .load(galleryModels.get(position).getFile())
                         .into(photoView);
                 dialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
                 dialog.show();

@@ -1,5 +1,6 @@
 package com.matahaticarecenter.adapter;
 
+import android.app.Dialog;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,6 +13,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.github.chrisbanes.photoview.PhotoView;
 import com.matahaticarecenter.R;
 import com.matahaticarecenter.model.PartnerModel;
 
@@ -35,13 +37,28 @@ public class PartnerAdapter extends RecyclerView.Adapter<PartnerAdapter.ViewHold
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, final int position) {
-        Glide.with(context).load(partnerModels.get(position).getLogo()).into(holder.imageView);
+        if (!partnerModels.get(position).getLogo().equals("")) {
+            Glide.with(context).load(partnerModels.get(position).getLogo()).into(holder.imageView);
+        }
 
         String text = partnerModels.get(position).getName();
         if (text.length() > 60) {
             text = text.substring(0, 60) + " ...";
         }
         holder.textView.setText(text);
+        holder.cardView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Dialog dialog = new Dialog(context);
+                dialog.setContentView(R.layout.dialog_zoom_image);
+                PhotoView photoView = dialog.findViewById(R.id.imageView);
+                Glide.with(context)
+                        .load(partnerModels.get(position).getLogo())
+                        .into(photoView);
+                dialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
+                dialog.show();
+            }
+        });
     }
 
     @Override

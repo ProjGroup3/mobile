@@ -1,10 +1,7 @@
 package com.matahaticarecenter.model;
 
-import android.os.Parcel;
-import android.os.Parcelable;
-
 public class ProgramModel {
-    private Integer img;
+    private String img;
     private String title;
     private String desctiption;
     private String content;
@@ -13,19 +10,18 @@ public class ProgramModel {
     public ProgramModel() {
     }
 
-    public ProgramModel(Integer img, String title, String desctiption, String content, String time) {
+    public ProgramModel(String img, String title, String desctiption) {
         this.img = img;
         this.title = title;
         this.desctiption = desctiption;
-        this.content = content;
-        this.time = time;
     }
 
-    public Integer getImg() {
+
+    public String getImg() {
         return img;
     }
 
-    public void setImg(Integer img) {
+    public void setImg(String img) {
         this.img = img;
     }
 
@@ -43,22 +39,6 @@ public class ProgramModel {
 
     public void setDesctiption(String desctiption) {
         this.desctiption = desctiption;
-    }
-
-    public String getContent() {
-        return content;
-    }
-
-    public void setContent(String content) {
-        this.content = content;
-    }
-
-    public String getTime() {
-        return time;
-    }
-
-    public void setTime(String time) {
-        this.time = time;
     }
 
 }

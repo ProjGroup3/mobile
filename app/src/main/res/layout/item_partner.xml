@@ -9,9 +9,9 @@
 
     <ImageView
         android:id="@+id/item_partner_logo"
+        android:src="@drawable/logo"
         android:layout_width="60dp"
-        android:layout_height="60dp"
-        android:background="@color/colorPrimary" />
+        android:layout_height="60dp" />
 
     <TextView
         android:id="@+id/item_partner_name"

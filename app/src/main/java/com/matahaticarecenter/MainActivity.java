@@ -3,17 +3,18 @@ package com.matahaticarecenter;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
-import android.graphics.drawable.AnimationDrawable;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 
 import androidx.appcompat.widget.Toolbar;
 import androidx.cardview.widget.CardView;
 
 import com.matahaticarecenter.adapter.SliderAdapter;
+import com.matahaticarecenter.model.UserModel;
 import com.smarteist.autoimageslider.IndicatorAnimations;
 import com.smarteist.autoimageslider.SliderAnimations;
 import com.smarteist.autoimageslider.SliderView;
@@ -25,6 +26,8 @@ import io.paperdb.Paper;
 public class MainActivity extends BaseActivity {
 
     private Context context = MainActivity.this;
+    private Button adminBtn;
+    private UserModel userModel = new UserModel();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,11 +40,13 @@ public class MainActivity extends BaseActivity {
 
         Paper.init(context);
 
-        AnimationDrawable animDrawable = (AnimationDrawable) findViewById(R.id.main_layout).getBackground();
-        animDrawable.setEnterFadeDuration(10);
-        animDrawable.setExitFadeDuration(5000);
-        animDrawable.start();
-
+        adminBtn = findViewById(R.id.home_admin_btn);
+        adminBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(context, AdminActivity.class));
+            }
+        });
         CardView profileBtn = findViewById(R.id.main_profile_btn);
         CardView programBtn = findViewById(R.id.main_program_btn);
         CardView galleryBtn = findViewById(R.id.main_gallery_btn);
@@ -62,6 +67,19 @@ public class MainActivity extends BaseActivity {
         sliderView.setIndicatorUnselectedColor(Color.GRAY);
         sliderView.setScrollTimeInSec(4);
         sliderView.startAutoCycle();
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        if (isLoggedIn()) {
+            userModel = Paper.book().read("user");
+            if (userModel.getLevel().equals("admin")) {
+                adminBtn.setVisibility(View.VISIBLE);
+            }
+        } else {
+            adminBtn.setVisibility(View.GONE);
+        }
     }
 
     private void buttonOnclick(CardView cardView, final Class c) {

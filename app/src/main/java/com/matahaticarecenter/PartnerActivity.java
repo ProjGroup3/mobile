@@ -3,13 +3,20 @@ package com.matahaticarecenter;
 import android.content.Context;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QuerySnapshot;
 import com.matahaticarecenter.adapter.PartnerAdapter;
 import com.matahaticarecenter.model.PartnerModel;
+import com.matahaticarecenter.model.ResModel;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -31,17 +38,25 @@ public class PartnerActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
 
-        partnerModels.add(new PartnerModel("1", "Kementrian Pendidikan Nasional, Direktorat Jendral Pendidikan Masyarakat dan Direktorat Jendral Pendidikan Nonformal dan Informal", ""));
-        partnerModels.add(new PartnerModel("1", "Dewi Hughes International Foundation", ""));
-        partnerModels.add(new PartnerModel("1", "TBM @mall Plaza Semanggi Jakarta, Plaza Semanggi Jakarta dan City of Tomorrow Surabaya", ""));
-        partnerModels.add(new PartnerModel("1", "Departemen Pendidikan Nasional Kota Malang", ""));
-        partnerModels.add(new PartnerModel("1", "KFC Nasional, sekolah little 1 academy", ""));
-        partnerModels.add(new PartnerModel("1", "BPPT Jawa Timur", ""));
-
         partnerAdapter = new PartnerAdapter(partnerModels, context);
         recyclerView = findViewById(R.id.partner_recyclerview);
         recyclerView.setLayoutManager(new LinearLayoutManager(context));
         recyclerView.setAdapter(partnerAdapter);
+
+        FirebaseFirestore.getInstance().collection("partner")
+                .get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                if (task.isSuccessful()) {
+                    partnerModels.clear();
+                    for (DocumentSnapshot snapshot : task.getResult().getDocuments()) {
+                        ResModel res = snapshot.toObject(ResModel.class);
+                        partnerModels.add(new PartnerModel(res.getId(), res.getName(), res.getImg()));
+                    }
+                    partnerAdapter.notifyDataSetChanged();
+                }
+            }
+        });
     }
 
     @Override

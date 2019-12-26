@@ -3,22 +3,17 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/maroon"
+    android:background="@drawable/gradient_animation"
+    android:paddingHorizontal="30dp"
     tools:context=".LoginActivity">
 
-    <LinearLayout
+    <ImageView
         android:id="@+id/logo"
-        android:layout_width="match_parent"
-        android:layout_height="180dp"
-        android:orientation="horizontal"
+        android:layout_width="180dp"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
         android:paddingTop="30dp"
-        tools:ignore="MissingConstraints">
-
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:src="@drawable/matahati" />
-    </LinearLayout>
+        android:src="@drawable/logo" />
 
     <LinearLayout
         android:id="@+id/text"
@@ -35,7 +30,7 @@
             android:fontFamily="sans-serif-black"
             android:text="Welcome Back!"
             android:textAlignment="center"
-            android:textColor="#FFFFFF"
+            android:textColor="@color/colorPrimaryDark"
             android:textSize="30sp" />
 
         <TextView
@@ -45,7 +40,7 @@
             android:fontFamily="sans-serif"
             android:text="Login to continue"
             android:textAlignment="center"
-            android:textColor="#FFFFFF"
+            android:textColor="@color/colorPrimaryDark"
             android:textSize="20sp" />
 
     </LinearLayout>
@@ -62,33 +57,29 @@
             android:id="@+id/input_username"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="30dp"
-            android:layout_marginRight="30dp"
-            android:background="@drawable/shapelogin"
-            android:drawableStart="@drawable/ic_email_black_24dp"
+            android:background="@drawable/shape_login"
+            android:drawableStart="@drawable/ic_email"
             android:drawablePadding="15dp"
-            android:hint="Username"
+            android:hint="Email"
             android:padding="15dp"
-            android:textColor="@color/white"
-            android:textColorHighlight="@color/white"
-            android:textColorHint="@color/white" />
+            android:textColor="@color/colorPrimaryDark"
+            android:textColorHighlight="@color/colorPrimaryDark"
+            android:textColorHint="@color/colorPrimaryDark" />
 
         <EditText
             android:id="@+id/input_password"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="30dp"
             android:layout_marginTop="20dp"
-            android:layout_marginRight="30dp"
-            android:background="@drawable/shapelogin"
-            android:drawableStart="@drawable/ic_lock_black_24dp"
+            android:background="@drawable/shape_login"
+            android:drawableStart="@drawable/ic_lock"
             android:drawablePadding="15dp"
             android:hint="Password"
             android:inputType="textPassword"
             android:padding="15dp"
-            android:textColor="@color/white"
-            android:textColorHighlight="@color/white"
-            android:textColorHint="@color/white" />
+            android:textColor="@color/colorPrimaryDark"
+            android:textColorHighlight="@color/colorPrimaryDark"
+            android:textColorHint="@color/colorPrimaryDark" />
 
     </LinearLayout>
 
@@ -97,29 +88,24 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/ed"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="20dp"
         android:orientation="horizontal">
 
         <CheckBox
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="40dp"
-            android:layout_marginTop="5dp"
-            android:layout_marginBottom="10dp"
-            android:buttonTint="@color/white"
+            android:layout_weight="1"
+            android:buttonTint="@color/colorPrimaryDark"
             android:text="Remember Me"
-            android:textColor="@color/white" />
+            android:textColor="@color/colorPrimaryDark" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginStart="70dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginEnd="20dp"
-            android:layout_marginBottom="10dp"
+            android:layout_weight="1"
+            android:gravity="center"
             android:text="Forget Password ?"
-            android:textAlignment="center"
-            android:textColor="@color/white" />
+            android:textColor="@color/colorPrimaryDark" />
 
     </LinearLayout>
 
@@ -128,12 +114,18 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/forget"
-        android:layout_marginLeft="30dp"
-        android:layout_marginTop="15dp"
-        android:layout_marginRight="30dp"
-        android:background="@drawable/shapebutton"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/button_send"
         android:text="Log In"
-        android:textColor="#FFFFFF" />
+        android:textColor="@color/colorAccent" />
+
+    <ProgressBar
+        android:id="@+id/login_progressbar"
+        style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/login_btn"
+        android:indeterminate="true" />
 
     <LinearLayout
         android:id="@+id/text2"
@@ -148,9 +140,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="sans-serif"
-            android:text="New user? Sign up!"
+            android:text="Baru? Daftar disini!"
             android:textAlignment="center"
-            android:textColor="#EF6C00"
+            android:textColor="@color/colorPrimaryDark"
             android:textSize="15dp" />
     </LinearLayout>
 

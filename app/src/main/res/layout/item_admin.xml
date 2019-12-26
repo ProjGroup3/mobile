@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/item_partner_card"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:id="@+id/item_admin_img"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:src="@drawable/logo" />
+
+    <TextView
+        android:id="@+id/item_admin_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginStart="16dp"
+        android:layout_toStartOf="@id/item_admin_edit"
+        android:layout_toEndOf="@id/item_admin_img"
+        android:text="" />
+
+    <ImageButton
+        android:id="@+id/item_admin_edit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_toStartOf="@id/item_admin_delete"
+        android:src="@drawable/ic_edit" />
+
+    <ImageButton
+        android:id="@+id/item_admin_delete"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_centerVertical="true"
+        android:src="@drawable/ic_delete"
+        android:text="Delete" />
+
+</RelativeLayout>

@@ -1,42 +1,34 @@
 {
   "project_info": {
-    "project_number": "954709929539",
-    "firebase_url": "https://matahati-care-center-45111.firebaseio.com",
-    "project_id": "matahati-care-center-45111",
-    "storage_bucket": "matahati-care-center-45111.appspot.com"
+    "project_number": "528673820479",
+    "firebase_url": "https://matahati-care-center.firebaseio.com",
+    "project_id": "matahati-care-center",
+    "storage_bucket": "matahati-care-center.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:954709929539:android:afe86ae7c297152b97aef6",
+        "mobilesdk_app_id": "1:528673820479:android:6156246873e629942fcd8a",
         "android_client_info": {
           "package_name": "com.matahaticarecenter"
         }
       },
       "oauth_client": [
         {
-          "client_id": "954709929539-s7e818o0f3l0offordhc27vvmpo5ctft.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.matahaticarecenter",
-            "certificate_hash": "ee967b6bc48c57729c2d2cf43efb2045c346f40d"
-          }
-        },
-        {
-          "client_id": "954709929539-t5o91hctdnr07vlfh83tslo0n8o6r7r3.apps.googleusercontent.com",
+          "client_id": "528673820479-q7s9v074bin0iufuls45bs2lagikon41.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyCB7xi4xcbM5Wq5pZar8kLCRP6WPfqDMp8"
+          "current_key": "AIzaSyBecyX3NDmkT9n86FELAtf3L0dt6T7TTkk"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "954709929539-t5o91hctdnr07vlfh83tslo0n8o6r7r3.apps.googleusercontent.com",
+              "client_id": "528673820479-q7s9v074bin0iufuls45bs2lagikon41.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
