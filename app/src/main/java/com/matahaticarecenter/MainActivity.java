@@ -103,7 +103,11 @@ public class MainActivity extends BaseActivity {
         switch (item.getItemId()) {
             case R.id.menu_chat:
                 if (isLoggedIn()) {
-                    startActivity(new Intent(context, ChatActivity.class));
+                    if (userModel.getLevel().equals("admin")) {
+                        startActivity(new Intent(context, ChatListActivity.class));
+                    } else {
+                        startActivity(new Intent(context, ChatActivity.class));
+                    }
                 } else {
                     startActivity(new Intent(context, LoginActivity.class));
                 }
